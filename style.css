@@ -1,0 +1,117 @@
+/*
+    '*' Used to target all of the elements
+*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* This makes elements' padding and margin to be included into total width and height making it much easier to create clean layout */
+}
+
+body {
+    font-family: 'Helvetica';
+}
+
+.wrapper {
+    border: 3px solid #010124;
+    width: 800px;
+    height: 600px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);   /* Absolute centering technique - It makes sure our game is always centered no matter what*/
+    background-image: url('imgs/background.png');
+    overflow: hidden;  /* to make sure nothing sticks out the edge*/
+
+}
+
+.score {
+    font-size: 150px;
+    color: #010124;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 200px;
+    height: 100px;
+    text-align: center;
+}
+
+
+.countdown {
+    position: absolute;
+    top: 490px;
+    width: 100%;
+    font-size: 20px;
+    text-align: center;
+    color: #010124;
+}
+
+button {
+    position: absolute;
+    bottom: 10px; 
+    left: 50%;
+    transform: translate(-50%, 0%);
+    background: #010124;
+    color: white;
+    padding: 20px 50px;
+    border-radius: 5px;
+    z-index: 200;  /* To make sure it's on top of all the other elements*/
+    cursor: pointer;
+    border: none;
+    outline: none;
+}
+
+.game {
+    /* border: 2px solid black; */
+    width: 600px;
+    height: 400px;
+    margin: 70px auto;
+    z-index: 200;
+    display: flex;
+    flex-wrap: wrap;  /* To make contents collape in a nice grid*/
+}
+
+.hole {
+    /* border: 3px solid red; */
+    flex: 1 0 33.3%; /* short hand for flex-grow flex-shrink flex-basis */
+                     /* Flex-grow -> specifies how much a particular element will grow relative to the other flexible elements -> 1 => they should be the same size*/
+                     /* Flex-basis -> makes sure each item is 1/3 of it's row*/
+    position: relative;
+    overflow: hidden;
+}
+
+.hole::after { /* Pseudo-element*/
+    content: '';
+    display: block;
+    background-image: url("imgs/sand1.png");
+    /* background: black; */
+    position: absolute;
+    width: 100%;
+    height: 70px;
+    z-index: 2;
+    bottom: -30px;
+    background-size: contain;   /* to make sure the entire image is displayed*/
+}
+
+.mole {
+    background-image: url("imgs/yoda1.png");
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    height: 100%;
+    transition: 0.4ss;
+    background-repeat: no-repeat;
+    background-position: bottom;
+}
+
+.mole.small {
+    background-size: 60%;
+}
+
+.mole.large {
+    background-size: 80%;
+}
+
+.hole.up .mole {
+    top: 0;     /* make it peek out */
+}
