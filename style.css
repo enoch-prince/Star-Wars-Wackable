@@ -1,0 +1,117 @@
+
+/*
+    '*' is used to select all the elements
+*/
+* {
+    margin: 0;  /* The space around the element */
+    padding: 0; /* The space within the element */
+    box-sizing: border-box; /* It includes the padding and margin 
+                            in the overall height and width of the 
+                            element*/
+}
+
+body {
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+
+.wrapper {
+    border: 3px solid #010124;
+    width: 800px;
+    height: 600px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Absolute centering technique */
+    background-image: url('imgs/background.png');
+    overflow: hidden; /* to make sure nothing sticks out the edge */
+}
+
+.score {
+    font-size: 120px;
+    color: #7e7ee7;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 200px;
+    height: 100px;
+    text-align: center;
+}
+
+.countdown {
+    position: absolute;
+    top: 470px;
+    width: 100%;
+    font-size: 23px;
+    text-align: center;
+    color: #ef2652;
+}
+
+button {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    background: #69699f;
+    color: white;
+    padding: 20px 50px;
+    border-radius: 25px;
+    z-index: 200;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    font-size: larger;
+}
+
+.game {
+    /* border: 3px solid red; */
+    width: 600px;
+    height: 400px;
+    margin: 70px auto;
+    z-index: 200;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.hole {
+    /* border: 3px solid red; */
+    flex: 1 0 33.3%;
+    position: relative;
+    overflow: hidden;
+}
+
+.hole::after { /* Pseudo-element */
+    content: '';
+    display: block;
+    background-image: url("imgs/sand1.png");
+    position: absolute;
+    width: 100%;
+    height: 70px;
+    z-index: 2;
+    bottom: -30px;
+    background-size: contain;
+}
+
+.yoda {
+    background-image: url('imgs/yoda1.png');
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    height: 100%;
+    transition: 0.4ss;
+    background-repeat: no-repeat;
+    background-position: bottom;
+}
+
+.yoda.small {
+    background-size: 60%;
+}
+
+.yoda.large {
+    background-size: 80%;
+}
+
+.hole.up .yoda {
+    top: 0;  
+}
