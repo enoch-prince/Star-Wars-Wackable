@@ -99,7 +99,7 @@ button {
     top: 100%;
     width: 100%;
     height: 100%;
-    transition: 0.4ss;
+    transition: 0.4s;
     background-repeat: no-repeat;
     background-position: bottom;
 }
